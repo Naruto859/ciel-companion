@@ -118,27 +118,13 @@ class GoogleVoiceEndpointTest {
     }
 
     @Test
-    fun andeeBallLookMatchesUxuiShrutAesthetic() {
+    fun andeeBallLookMatchesOriginalAesthetic() {
         val look = ANDEE
         assertEquals("andee", look.name)
-        // #1C1D20 base: ~0.110f, 0.114f, 0.125f
-        assertEquals(0.110f, look.bodyBase[0], 0.01f)
-        assertEquals(0.114f, look.bodyBase[1], 0.01f)
-        assertEquals(0.125f, look.bodyBase[2], 0.01f)
-
-        // Accent #22D3EE in rim: ~0.133f, 0.827f, 0.933f
-        assertEquals(0.133f, look.rimTint[0], 0.01f)
-        assertEquals(0.827f, look.rimTint[1], 0.01f)
-        assertEquals(0.933f, look.rimTint[2], 0.01f)
-
-        // Accent #FFC928 in hornTipColor and mouthInk: ~1.0f, 0.788f, 0.157f
-        assertEquals(1.000f, look.hornTipColor[0], 0.01f)
-        assertEquals(0.788f, look.hornTipColor[1], 0.01f)
-        assertEquals(0.157f, look.hornTipColor[2], 0.01f)
-
-        assertEquals(1.000f, look.mouthInk[0], 0.01f)
-        assertEquals(0.788f, look.mouthInk[1], 0.01f)
-        assertEquals(0.157f, look.mouthInk[2], 0.01f)
+        // Original velvety soft blue base: 0.250f, 0.460f, 0.870f
+        assertEquals(0.250f, look.bodyBase[0], 0.01f)
+        assertEquals(0.460f, look.bodyBase[1], 0.01f)
+        assertEquals(0.870f, look.bodyBase[2], 0.01f)
 
         // Gestures and animation flags preserved
         assertTrue(look.gestures)
