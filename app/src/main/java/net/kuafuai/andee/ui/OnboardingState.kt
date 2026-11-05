@@ -46,21 +46,21 @@ object OnboardingState {
     }
 
     fun assistantName(context: Context): String =
-        prefs(context).getString(KEY_ASSISTANT_NAME, "Andee").orEmpty().ifBlank { "Andee" }
+        prefs(context).getString(KEY_ASSISTANT_NAME, "Ciel").orEmpty().ifBlank { "Ciel" }
 
     fun userName(context: Context): String =
         prefs(context).getString(KEY_USER_NAME, "").orEmpty()
 
     /**
      * The names go where the rest of the device reads them, in the encrypted
-     * notebook: Andee's own name on its self ([net.kuafuai.andee.config.Selfhood.setName]),
+     * notebook: Ciel's own name on its self ([net.kuafuai.andee.config.Selfhood.setName]),
      * the user's on their owner record in the people it knows
      * ([net.kuafuai.andee.config.People.setOwnerName]). Both ride on every user
      * message from there, so the brain actually uses them. The preferences are
      * kept only so this UI paints instantly without opening the notebook.
      */
     fun saveNames(context: Context, assistantName: String, userName: String) {
-        val assistant = assistantName.trim().ifEmpty { "Andee" }
+        val assistant = assistantName.trim().ifEmpty { "Ciel" }
         val user = userName.trim()
         prefs(context).edit()
             .putString(KEY_ASSISTANT_NAME, assistant)

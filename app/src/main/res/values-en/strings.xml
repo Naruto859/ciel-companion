@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Andee</string>
-    <string name="notification_relay_label">Andee notification access</string>
-    <string name="accessibility_service_description">Andee needs this to see what is on screen and to tap, swipe and type for you. A floating ball appears on the home screen: tap it to talk, long-press to open the conversation.</string>
+    <string name="app_name">Ciel</string>
+    <string name="notification_relay_label">Ciel notification access</string>
+    <string name="accessibility_service_description">Ciel needs this to see what is on screen and to tap, swipe and type for you. A floating ball appears on the home screen: tap it to talk, long-press to open the conversation.</string>
 
     <!-- First run: three concrete stories, only the missing setup, then names. -->
     <string name="onboarding_prelude_badge">Before we start</string>

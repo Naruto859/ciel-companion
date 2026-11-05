@@ -70,7 +70,7 @@ class GoogleVoiceEndpointTest {
     @Test
     fun asrCustomWebSocketOverridesDefault() {
         val asr = GoogleAsr(
-            sampleSettings(asrEndpoint = "wss://my-proxy.com/ws/live"),
+            sampleSettings(baseUrl = "wss://my-proxy.com/ws/live"),
             NoopAsrListener()
         )
         val url = asr.liveEndpointUrl()

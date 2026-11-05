@@ -582,24 +582,12 @@ class GoogleAsr(
      * Also supports custom WebSocket/HTTP ASR proxies or Vertex AI if configured.
      */
     fun liveEndpointUrl(): String {
-        if (config.asrEndpoint.startsWith("ws://") || config.asrEndpoint.startsWith("wss://")) {
-            return appendKey(config.asrEndpoint)
-        }
         val base = config.googleBaseUrl.trim().trimEnd('/')
-        if (base.isNotBlank()) {
-            if (base.startsWith("ws://") || base.startsWith("wss://")) {
-                return appendKey(base)
-            }
-            if (base.contains("aiplatform.googleapis.com")) {
-                return appendKey("wss://aiplatform.googleapis.com/ws/google.cloud.aiplatform.v1beta1.LlmBidiService/BidiGenerateContent")
-            }
-            if (base.contains("generativelanguage.googleapis.com")) {
-                return appendKey(DEFAULT_LIVE_URL)
-            }
-            val wsBase = base.replace(Regex("^http://", RegexOption.IGNORE_CASE), "ws://")
-                .replace(Regex("^https://", RegexOption.IGNORE_CASE), "wss://")
-            val fullWs = if (wsBase.contains("/ws/")) wsBase else "$wsBase/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent"
-            return appendKey(fullWs)
+        if (base.contains("aiplatform.googleapis.com")) {
+            return appendKey("wss://aiplatform.googleapis.com/ws/google.cloud.aiplatform.v1beta1.LlmBidiService/BidiGenerateContent")
+        }
+        if (base.startsWith("ws://") || base.startsWith("wss://")) {
+            return appendKey(base)
         }
         return appendKey(DEFAULT_LIVE_URL)
     }
